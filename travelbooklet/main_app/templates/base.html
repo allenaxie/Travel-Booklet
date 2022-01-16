@@ -31,11 +31,11 @@
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                            <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">
+                            <a class="nav-link" href="{% url 'account_login' %}">
                                 <span class="bi-box-arrow-in-right"></span> Log in
                             </a>
                         </li>
