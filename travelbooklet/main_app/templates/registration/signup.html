@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static%}
 
-<h1>Sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="signup">
-    <input type="hidden" name="next" value="{{ next }}"> 
-</form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registration/signup.css' %}">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-dark" value="Sign up">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</body>
+
+</html>
+
+
 
 {% endblock %}

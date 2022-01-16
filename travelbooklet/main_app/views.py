@@ -2,9 +2,23 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from amadeus import Client, ResponseError
+
+
+amadeus = Client(
+    client_id='GF2UH9WOwXfNmLSSYsyyBeawJr5ghrcY',
+    client_secret='33XFwDCnrKpaygAD'
+)
 
 # Create your views here.
 def home(request):
+    print('hi')
+    try:
+        response = amadeus.reference_data.urls.checkin_links.get(airlineCode='BA')
+        data = response.data
+        print(data)
+    except ResponseError as error:
+        print(error) 
     return render(request,'home.html')
 
 def signup(request):

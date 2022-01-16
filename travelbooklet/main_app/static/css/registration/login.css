@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+form {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.signup_container {
+    margin-top: 3rem;
+    text-align: center;
+}
