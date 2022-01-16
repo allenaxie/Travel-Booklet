@@ -14,3 +14,11 @@ form {
     margin-top: 3rem;
     text-align: center;
 }
+
+.google_btn {
+    margin-bottom: 2rem;
+    background:#ffffff;
+    margin-right: 7rem;
+    border: solid;
+    border-width: .1rem;
+}
