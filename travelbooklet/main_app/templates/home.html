@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% block content%}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +8,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"> 
+    <title>Travel Booklet</title>
 </head>
 <body>
-    
+    <!-- Hero Banner -->
+    <section class="row container hero_banner">
+        <h1 class="banner_title">Travel Booklet</h1>
+        <h4 class="banner_slogan">We travel not to escape life,<br>
+        but for life not to escape us.</h4>
+        <a class="btn btn-dark get_started_btn" href="{% url 'login' %}">Get started</a>
+    </section>
+    <!-- Featured Destinations -->
+    <section class="row container featured_dest_container ">
+        <h2 class="featured_title">Featured Destinations</h2>
+    </section>
 </body>
+
 </html>
 
 {% endblock %}

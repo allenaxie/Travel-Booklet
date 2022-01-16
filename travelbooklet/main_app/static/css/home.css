@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Bungee+Shade&family=Marcellus&family=Orbitron:wght@600&family=Permanent+Marker&family=Share+Tech+Mono&family=Teko&display=swap');
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Hero Banner */
+.hero_banner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-image: url("https://i.imgur.com/DopvFQ3.jpg");
+    background-size: cover;
+    margin-left: 0;
+    margin-right: 0;
+    filter:brightness(70%);
+    opacity: 90%;
+    z-index: 1;
+}
+
+.banner_title {
+    margin-top: 5rem;
+    font-family: Bebas Neue;
+    font-size: 7rem;
+    text-shadow: 
+    0px 0px 2px #1f1f1f,
+    1px 1px 1px #98e947,
+    3px 3px 6px #ffffff;
+    filter:contrast(180%);
+}
+
+.banner_slogan {
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-shadow: 
+    0px 0px 2px #1f1f1f,
+    1px 1px 1px #98e947,
+    3px 3px 6px #ffffff;
+    filter:contrast(180%);
+}
+
+.get_started_btn {
+    width: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    filter:contrast(180%);
+}
+
+/* Featured Destination */
+.featured_dest_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.featured_title {
+    margin-top: 4rem;
+}
