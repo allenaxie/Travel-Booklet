@@ -12,6 +12,7 @@ body {
     text-align: center;
     background-image: url("https://i.imgur.com/DopvFQ3.jpg");
     background-size: cover;
+    background-position: 50% 30%;
     margin-left: 0;
     margin-right: 0;
     filter:brightness(70%);
