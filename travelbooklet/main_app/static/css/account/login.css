@@ -15,10 +15,15 @@ form {
     text-align: center;
 }
 
-.google_btn {
-    margin-bottom: 2rem;
-    background:#ffffff;
-    margin-right: 7rem;
+.google_login {
+    background:#f05252;
     border: solid;
     border-width: .1rem;
+    width: 13rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2rem;
 }
