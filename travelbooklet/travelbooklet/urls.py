@@ -20,8 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # root route
     path('', include('main_app.urls')),
-    # # built in auth urls
-    # path('accounts/', include('django.contrib.auth.urls')),
-    # google oauth
+    # allauth
     path('accounts/', include('allauth.urls')),
 ]
