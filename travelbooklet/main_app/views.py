@@ -24,17 +24,17 @@ def home(request):
         # France
         'CDG','NCE',
         # Spain
-        'MAD','BCN',
+        'BCN',
         # Italy
-        'FCO','MXP','VCE',
+        'FCO','VCE',
         # Germany
         'FRA','TXL',
         # United Kingdom
         'LHR','LGW',
         # America
-        'ATL','LAX','ORD','DFW','JFK','SFO','SEA','LAS','MIA','HNL','SAN',
+        'ATL','LAX','JFK','SFO','SEA','LAS','MIA','HNL',
         # Mexico
-        'MEX','CUN','GDL','TIJ',
+        'MEX','CUN','TIJ',
         # Saudi Arabia
         'JED','RUH',
         # Netherlands
@@ -90,3 +90,6 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+def trips(request):
+    return render(request, 'trips/index.html')
