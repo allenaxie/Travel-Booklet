@@ -18,28 +18,27 @@ amadeus = Client(
     client_secret = client_secret
 )
 
-
 # Create your views here.
 def home(request):
     iata_array = [
         # France
-        'CDG','NCE','LYS','TLS',
+        'CDG','NCE',
         # Spain
         'MAD','BCN',
         # Italy
-        'FCO','MXP','VCE','NAP','BLQ',
+        'FCO','MXP','VCE',
         # Germany
-        'FRA','TXL','HAM',
+        'FRA','TXL',
         # United Kingdom
-        'LHR','LGW','MAN','STN',
+        'LHR','LGW',
         # America
         'ATL','LAX','ORD','DFW','JFK','SFO','SEA','LAS','MIA','HNL','SAN',
         # Mexico
-        'MEX','CUN','GDL','TIJ','SJD',
+        'MEX','CUN','GDL','TIJ',
         # Saudi Arabia
-        'JED','RUH','DMM','MED',
+        'JED','RUH',
         # Netherlands
-        'AMS','EIN','RTM',
+        'AMS','EIN',
     ]
     # Get Amadeus API access token
     headers = {
@@ -61,6 +60,7 @@ def home(request):
     )
     response = requests.get('https://test.api.amadeus.com/v1//reference-data/recommended-locations', headers=headers, params=params)
     data= response.json()
+    print('featured city',data["data"][0]["name"])
     # Imsea Image search API - 3 relevant destinations
     image1 = requests.get(f'https://imsea.herokuapp.com/api/1?q={data["data"][0]["name"]}').json()
     image2 = requests.get(f'https://imsea.herokuapp.com/api/1?q={data["data"][1]["name"]}').json()
