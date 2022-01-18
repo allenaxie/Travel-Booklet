@@ -23,34 +23,31 @@
     <section class="row container featured_dest_container ">
         <h2 class="featured_title">Featured Destinations</h2>
         <div class="card mb-3">
-            <div class="row g-0">
-                <div class="card-header col-md-4"> 
-                    <img class="feat_dest_img img-fluid" src="{{ image1.results.3 }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h3>{{ data.data.0.name }}</h3>
-                    </div>
-                </div>
+            <div class="card-header "> 
+                <h3>{{ data.data.0.name }}</h3>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-header"> {{ data.data.1.name }}</div>
             <div class="card-body">
-                <img class="feat_dest_img img-fluid" src="{{ image2.results.3 }}">
-            </div>
-            <div class="card-footer">
-
+                <img class="feat_dest_img img-fluid card-img-top" src="{{ image1.results.3 }}">
             </div>
         </div>
-        <div class="card">
-            <div class="card-header"> {{ data.data.2.name }}</div>
+        <div class="card mb-3">
+            <div class="card-header "> 
+                <h3>{{ data.data.1.name }}</h3>
+            </div>
             <div class="card-body">
-                <img class="feat_dest_img img-fluid" src="{{ image3.results.3 }}">
-            </div>
-            <div class="card-footer">
+                <img class="feat_dest_img img-fluid card-img-top" src="{{ image2.results.3 }}">
             </div>
         </div>
+        <div class="card mb-3">
+            <div class="card-header "> 
+                <h3>{{ data.data.2.name }}</h3>
+            </div>
+            <div class="card-body">
+                <img class="feat_dest_img img-fluid card-img-top" src="{{ image3.results.3 }}">
+            </div>
+        </div>
+        
+        
     </section>
 </body>
 
