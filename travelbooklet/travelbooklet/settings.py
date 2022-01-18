@@ -137,8 +137,8 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
+# disable Google sign in & sign out confirmation page
 ACCOUNT_LOGOUT_ON_GET = True
-
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 # Default primary key field type
