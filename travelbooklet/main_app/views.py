@@ -47,8 +47,17 @@ def home(request):
     )
     response = requests.get('https://test.api.amadeus.com/v1//reference-data/recommended-locations', headers=headers, params=params)
     data= response.json()
+    # Imsea Image search API - 3 relevant destinations
+    image1 = requests.get(f'https://imsea.herokuapp.com/api/1?q={data["data"][0]["name"]}').json()
+    image2 = requests.get(f'https://imsea.herokuapp.com/api/1?q={data["data"][1]["name"]}').json()
+    image3 = requests.get(f'https://imsea.herokuapp.com/api/1?q={data["data"][2]["name"]}').json()
     # Render home page
-    return render(request,'home.html',{'data':data})
+    return render(request,'home.html',{
+        'data':data,
+        'image1':image1,
+        'image2':image2,
+        'image3':image3
+        })
 
 def signup(request):
     error_message = ''
