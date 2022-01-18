@@ -7,6 +7,7 @@ import requests
 from django.contrib import messages
 import json
 import os
+import random
 
 # Amadeus API keys
 client_id = os.getenv('AMADEUS_API_KEY')
@@ -18,14 +19,28 @@ amadeus = Client(
 )
 
 
-
-
-
-
-
-
 # Create your views here.
 def home(request):
+    iata_array = [
+        # France
+        'CDG','NCE','LYS','TLS',
+        # Spain
+        'MAD','BCN',
+        # Italy
+        'FCO','MXP','VCE','NAP','BLQ',
+        # Germany
+        'FRA','TXL','HAM',
+        # United Kingdom
+        'LHR','LGW','MAN','STN',
+        # America
+        'ATL','LAX','ORD','DFW','JFK','SFO','SEA','LAS','MIA','HNL','SAN',
+        # Mexico
+        'MEX','CUN','GDL','TIJ','SJD',
+        # Saudi Arabia
+        'JED','RUH','DMM','MED',
+        # Netherlands
+        'AMS','EIN','RTM',
+    ]
     # Get Amadeus API access token
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -42,8 +57,7 @@ def home(request):
         'Authorization': f'Bearer {token["access_token"]}',
     }
     params = (
-        ('cityCodes', 'SFO'),
-        ('travelerCountryCode', 'US'),
+        ('cityCodes', f'{random.choice(iata_array)}'),
     )
     response = requests.get('https://test.api.amadeus.com/v1//reference-data/recommended-locations', headers=headers, params=params)
     data= response.json()
