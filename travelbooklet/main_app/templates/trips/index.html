@@ -1,1 +1,65 @@
-lala
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'css/trips/index.css' %}">
+    <title>My Trips</title>
+</head>
+<body>
+    <h1 class="title">My Trips</h1>
+    <section class="trips_container row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-sm-2 g-md-2 g-lg-2 p-4 ">
+        <div class="card shadow col">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+        <div class="card shadow col">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+        <div class="card shadow col">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+        <div class="card shadow col">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+{% endblock %}
