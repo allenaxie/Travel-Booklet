@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account/login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-dark" value="Login">
+        <input type="hidden" name="next" value="{{ next }}"> 
+    </form>
+    <a href="{% provider_login_url 'google' %}" class="btn btn-dark google_login" role="button"><span class="bi-google"></span> &nbsp Login with Google</a>
+    <div class="row signup_container">
+        <h4>Don't have an account?</h4>
+        <a href="{% url 'signup' %} ">Sign up now!</a>
+    </div>
+</body>
+</html>
+
+
+
+{% endblock %}

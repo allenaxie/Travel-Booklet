@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+form {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.signup_container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.google_login {
+    background:#f05252;
+    border: solid;
+    border-width: .1rem;
+    width: 13rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
