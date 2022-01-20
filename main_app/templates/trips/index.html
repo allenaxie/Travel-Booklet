@@ -13,6 +13,8 @@
 </head>
 <body>
     <h1 class="title">My Trips</h1>
+    <a class="btn btn-dark new_trip_btn" href="{% url 'trips_create' %}"><span class="bi-plus"></span> New Trip</a>
+    
     <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
     <section class="trips_container row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-sm-2 g-md-2 g-lg-2 p-4 ">
         <div class="card shadow col">

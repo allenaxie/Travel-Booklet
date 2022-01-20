@@ -10,6 +10,12 @@ import json
 import os
 import random #random.choices()
 import re # regex
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+import uuid
+import boto3
+import os
+from .models import Trip
 
 # Amadeus API keys
 client_id = os.getenv('AMADEUS_API_KEY')
@@ -69,5 +75,18 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
     return render(request, 'registration/signup.html', context)
 
 @login_required
-def trips(request):
+def trips_index(request):
+
+    trips = Trip.objects.filter(user = request.user)
     return render(request, 'trips/index.html')
+
+class TripCreate(CreateView):
+    model = Trip
+    fields = [
+        "name",
+        "start_date", 
+        "end_date", 
+        "departure_location", 
+        "destination", 
+        "description", 
+        ]

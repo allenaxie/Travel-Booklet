@@ -20,7 +20,7 @@
         <!-- if user is not logged in, go to login page. ELSE go to my trips -->
         <a class="btn btn-dark get_started_btn"
         {% if user.is_authenticated %}
-        href="{% url 'my_trips' %}"
+        href="{% url 'trips_index' %}"
         {% else %}
         href="{% url 'account_login' %}"
         {% endif %}
