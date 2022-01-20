@@ -75,7 +75,7 @@ def home(request):
         'data': data_array
         })
 
-def signup(request):
+def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend'):
     error_message = ''
     if request.method == 'POST':
         # This is how to create a 'user' form object that includes the data from the browser
@@ -84,7 +84,7 @@ def signup(request):
             # Add user to database
             user = form.save()
             # log in the user
-            login(request, user)
+            login(request, user, backend = 'allauth.account.auth_backends.AuthenticationBackend')
             return redirect('home')
         else:
             error_message = 'Invalid sign up - try again'
