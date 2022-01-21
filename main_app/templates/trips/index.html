@@ -17,9 +17,11 @@
     
     <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
     <section class="trips_container row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-sm-2 g-md-2 g-lg-2 p-4 ">
+       
+        {% for trip in trips %}
         <div class="card shadow col">
             <div class="card-header">
-
+                <h1> {{ trip.name }}</h1>
             </div>
             <div class="card-body">
 
@@ -28,39 +30,10 @@
 
             </div>
         </div>
-        <div class="card shadow col">
-            <div class="card-header">
-
-            </div>
-            <div class="card-body">
-
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-        <div class="card shadow col">
-            <div class="card-header">
-
-            </div>
-            <div class="card-body">
-
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-        <div class="card shadow col">
-            <div class="card-header">
-
-            </div>
-            <div class="card-body">
-
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
+        {% empty %}
+        No trips planned yet
+        
+        {% endfor %}
     </section>
 </body>
 </html>

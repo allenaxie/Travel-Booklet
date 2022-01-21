@@ -6,6 +6,7 @@ from amadeus import Client, ResponseError
 import requests
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 import json
 import os
 import random #random.choices()
@@ -76,17 +77,17 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
 
 @login_required
 def trips_index(request):
-
     trips = Trip.objects.filter(user = request.user)
-    return render(request, 'trips/index.html')
+    return render(request, 'trips/index.html',{'trips': trips})
 
-class TripCreate(CreateView):
+
+class TripCreate(LoginRequiredMixin, CreateView):
     model = Trip
-    fields = [
-        "name",
-        "start_date", 
-        "end_date", 
-        "departure_location", 
-        "destination", 
-        "description", 
-        ]
+    fields = ["name", "start_date", "end_date", "departure_location", "destination", "description"]
+
+    def form_valid(self, form):
+        # Assign the logged in user as owner of the Cat being created
+        form.instance.user = self.request.user
+        # Let the CreateView do its job as usual
+        return super().form_valid(form)
+    
