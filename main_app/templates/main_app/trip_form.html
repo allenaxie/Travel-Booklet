@@ -16,7 +16,14 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button class="btn btn-dark">Create New Trip!</button>
+        <button class="btn btn-dark">
+        {% if object %}
+            Edit Trip
+        {% else %}
+            Create New Trip!
+        {% endif %}
+        </button>
+
     </form>
 
 </body>

@@ -91,3 +91,26 @@ class TripCreate(LoginRequiredMixin, CreateView):
         # Let the CreateView do its job as usual
         return super().form_valid(form)
     
+class TripUpdate(LoginRequiredMixin, UpdateView):
+    model = Trip
+    fields = ["name", "start_date", "end_date", "departure_location", "destination", "notes"]
+
+    def get(self, request, pk):
+        self.object = self.get_object()
+        if self.object.user == self.request.user:
+            return super().get(self, request, pk)
+        else:
+            return redirect('/trips/')
+
+    def post(self, request, pk):
+        self.object = self.get_object()
+        if self.object.user == self.request.user:
+            return super().post(self, request, pk)
+        else:
+            return redirect('/trips/')
+
+
+def trips_delete(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
+    trip.delete()
+    return redirect('trips_index')

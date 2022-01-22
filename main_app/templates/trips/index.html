@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link rel='stylesheet' href="{% static 'css/trips/index.css' %}">
     <title>My Trips</title>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -21,10 +23,10 @@
                 <span class="bi-plus"></span> New Trip
             </a>
         </div>
-        
+
         <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
         <section class="trips_container row row-cols-md-2 g-3 p-4 justify-content-around">
-           
+
             {% for trip in trips %}
             <div class="card shadow col-md mb-4">
                 <div class="card-header">
@@ -34,8 +36,8 @@
                 <div class="card-body">
                     <table class="table table-striped">
                         <tr>
-                           <th>Start Date: </th>
-                           <td>{{ trip.start_date }}</td> 
+                            <th>Start Date: </th>
+                            <td>{{ trip.start_date }}</td>
                         </tr>
                         <tr>
                             <th>End Date:</th>
@@ -56,17 +58,43 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-info">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a class="btn btn-info" href="{% url 'trips_update' trip.id %}">Edit</a>
+                    <a href="#delete_conf_modal" class="btn btn-danger" data-bs-toggle="modal">Delete</a>
+                </div>
+            </div>
+            {{ trip.id }}
+            <!-- Modal HTML -->
+            <div id="delete_conf_modal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Confirmation</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this trip?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <form action="{% url 'trips_delete' trip.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% empty %}
             No trips planned yet
-            
+
             {% endfor %}
         </section>
     </div>
+
+
 </body>
+
 </html>
+
 
 {% endblock %}
