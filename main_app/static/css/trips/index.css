@@ -1,5 +1,15 @@
 .title {
     text-align: center;
+    margin-top: 1.5rem;
 }
 
+#new_trip_btn_container {
+    display: flex;
+    justify-content: flex-start;
+}
 
+.new_trip_btn {
+    width: 130px;
+    margin-left: 2rem;
+    text-align: center;
+}

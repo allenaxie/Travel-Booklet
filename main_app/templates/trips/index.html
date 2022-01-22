@@ -16,8 +16,10 @@
         <div class="row">
             <h1 class="title">My Trips</h1>
         </div>
-        <div clas="new_trip_btn_container row">
-            <a class="btn btn-dark new_trip_btn" href="{% url 'trips_create' %}"><span class="bi-plus"></span> New Trip</a>
+        <div clas="row" id="new_trip_btn_container">
+            <a class="btn btn-success new_trip_btn" href="{% url 'trips_create' %}">
+                <span class="bi-plus"></span> New Trip
+            </a>
         </div>
         
         <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
@@ -54,7 +56,8 @@
                     </table>
                 </div>
                 <div class="card-footer">
-    
+                    <a class="btn btn-info">Edit</a>
+                    <a class="btn btn-danger">Delete</a>
                 </div>
             </div>
             {% empty %}
