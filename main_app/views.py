@@ -83,7 +83,7 @@ def trips_index(request):
 
 class TripCreate(LoginRequiredMixin, CreateView):
     model = Trip
-    fields = ["name", "start_date", "end_date", "departure_location", "destination", "description"]
+    fields = ["name", "start_date", "end_date", "departure_location", "destination", "notes"]
 
     def form_valid(self, form):
         # Assign the logged in user as owner of the Cat being created

@@ -10,7 +10,7 @@ class Trip(models.Model):
     end_date = models.DateField()
     departure_location = models.CharField(max_length=100)
     destination = models.CharField(max_length = 100)
-    description = models.TextField(max_length=400)
+    notes = models.TextField(max_length=400)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

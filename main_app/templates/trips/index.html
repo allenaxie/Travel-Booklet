@@ -12,29 +12,57 @@
     <title>My Trips</title>
 </head>
 <body>
-    <h1 class="title">My Trips</h1>
-    <a class="btn btn-dark new_trip_btn" href="{% url 'trips_create' %}"><span class="bi-plus"></span> New Trip</a>
-    
-    <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
-    <section class="trips_container row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-sm-2 g-md-2 g-lg-2 p-4 ">
-       
-        {% for trip in trips %}
-        <div class="card shadow col">
-            <div class="card-header">
-                <h1> {{ trip.name }}</h1>
-            </div>
-            <div class="card-body">
-
-            </div>
-            <div class="card-footer">
-
-            </div>
+    <div class="container">
+        <div class="row">
+            <h1 class="title">My Trips</h1>
         </div>
-        {% empty %}
-        No trips planned yet
+        <div clas="new_trip_btn_container row">
+            <a class="btn btn-dark new_trip_btn" href="{% url 'trips_create' %}"><span class="bi-plus"></span> New Trip</a>
+        </div>
         
-        {% endfor %}
-    </section>
+        <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
+        <section class="trips_container row row-cols-md-2 g-3 p-4 justify-content-around">
+           
+            {% for trip in trips %}
+            <div class="card shadow col-md mb-4">
+                <div class="card-header">
+                    <h1> {{ trip.name }}</h1>
+                    <h5> {{ trip.destination }}</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                           <th>Start Date: </th>
+                           <td>{{ trip.start_date }}</td> 
+                        </tr>
+                        <tr>
+                            <th>End Date:</th>
+                            <td>{{ trip.end_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Departure:</th>
+                            <td>{{ trip.departure_location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Destination:</th>
+                            <td>{{ trip.destination }}</td>
+                        </tr>
+                        <tr>
+                            <th>Notes</th>
+                            <td>{{ trip.notes }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+    
+                </div>
+            </div>
+            {% empty %}
+            No trips planned yet
+            
+            {% endfor %}
+        </section>
+    </div>
 </body>
 </html>
 
