@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Bungee+Shade&family=Marcellus&family=Orbitron:wght@600&family=Permanent+Marker&family=Share+Tech+Mono&family=Teko&display=swap');
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
 
 /* Hero Banner */
 .hero_banner {

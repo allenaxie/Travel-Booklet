@@ -15,16 +15,18 @@
 
 <body>
     <div class="container">
+        <!-- Title -->
         <div class="row">
             <h1 class="title">My Trips</h1>
         </div>
+        <!-- Add new trip -->
         <div clas="row" id="new_trip_btn_container">
             <a class="btn btn-success new_trip_btn" href="{% url 'trips_create' %}">
                 <span class="bi-plus"></span> New Trip
             </a>
         </div>
 
-        <!-- Cards grid system - Vertically stack 1 card at smallest screen. Increment 1 card horizontally per breakpoint -->
+        <!-- Cards grid system -->
         <section class="trips_container row row-cols-md-2 g-3 p-4 justify-content-around">
 
             {% for trip in trips %}
@@ -62,9 +64,9 @@
                     <a href="#delete_{{trip.id}}" class="btn btn-danger" data-bs-toggle="modal">Delete</a>
                 </div>
             </div>
-            {{ trip.id }}
+           
             
-            <!-- Modal HTML -->
+            <!-- Delete Trip Modal HTML -->
             <div id="delete_{{trip.id}}" class="modal fade"> 
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -76,8 +78,6 @@
                             <p>Are you sure you want to delete this trip?</p>
                         </div>
                         <div class="modal-footer">
-                            {{ trip.id }}
-                            {{ trip }}
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <form action="{% url 'trips_delete' trip.id %}" method="POST">
                                 {% csrf_token %}
@@ -93,8 +93,6 @@
             {% endfor %}
         </section>
     </div>
-
-
 </body>
 
 </html>
