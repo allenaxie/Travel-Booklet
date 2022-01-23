@@ -75,6 +75,11 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
+def profile(request):
+    return render(request, 'account/profile.html')
+
+# Trips
 @login_required
 def trips_index(request):
     trips = Trip.objects.filter(user = request.user)
