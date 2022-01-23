@@ -80,7 +80,7 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
 # Trips
 @login_required
 def trips_index(request):
-    trips = Trip.objects.filter(user = request.user)
+    trips = Trip.objects.filter(user = request.user).order_by('start_date')
     return render(request, 'trips/index.html',{'trips': trips})
 
 
