@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account/profile.css' %}">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="fluid-container">
+        <div class="card">
+            <div class="card-header">
+                {{ profile.username }}
+                {{ user.username }}
+            </div>
+            <div class="card-body">
+                {{ profile.first_name }}{{ profile.last_name }}
+                {{ profile.email }}
+                {{ profile.birthdate }}
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+    </div>
+    <form class="pure-form" action="{% url 'profile_create' %}" method="POST">
+        <table class="table">
+            {% csrf_token %}
+            {{ profile_form.as_table }}
+        </table>
+        <button class="pure-button" type="submit">Submit</button>
+        </form>
+</body>
+</html>
+
+{% endblock %}

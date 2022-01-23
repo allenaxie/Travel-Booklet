@@ -16,7 +16,8 @@ from django.views.generic import ListView, DetailView
 import uuid
 import boto3
 import os
-from .models import Trip
+from .models import *
+from .forms import ProfileForm
 
 # Amadeus API keys
 client_id = os.getenv('AMADEUS_API_KEY')
@@ -75,9 +76,18 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-
+# Profile
 def profile(request):
-    return render(request, 'account/profile.html')
+    profile = Profile.objects.filter(user = request.user)
+    profile_form = ProfileForm()
+    return render(request, 'account/profile.html', {'profile': profile,'profile_form': profile_form})
+
+def profile_create(request):
+    form = ProfileForm(request.POST)
+    if form.is_valid():
+        new_profile = form.save()
+    return redirect('profile')
+
 
 # Trips
 @login_required
