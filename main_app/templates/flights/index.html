@@ -8,20 +8,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/flights/index.css' %}">
     <title>Flights</title>
 </head>
 <body>
     <!-- Cheapest flights insp search -->
-    <section class="fluid-container">
+    <section class="container mb-5">
         <form class="form-container" action="{% url 'flights_index' %}" method="post">
             {% csrf_token %}
-            <div class="search-container">
+            <div class="search-container form-floating">
                 <input class="search-bar form-control" type="text" name="depart_city" placeholder="Enter city IATA code (i.e SFO, MAD, LAX)">
-                <button class="btn btn-success" type="submit">Search</button>
+                <label class="temp-text">Enter city IATA code (i.e SFO, MAD, LAX)</label>
+                <div>
+                    <button class="btn btn-success" type="submit">Search</button>
+                </div>
             </div>
         </form>
+        
     </section>
-    <section class="fluid-container">
+
+  
+    <section class="fluid-container search-results">
         <h1>Departure city: {{ data.data.0.origin }}</h1>
         <table class="table table-striped">
             <tr>
@@ -40,6 +47,7 @@
             {% endfor %}
         </table>
     </section>
+  
 </body>
 </html>
 

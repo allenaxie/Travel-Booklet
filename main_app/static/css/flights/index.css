@@ -1,0 +1,55 @@
+/* search bar */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 40vw;
+    -webkit-transition: width 0.6s ease-in-out;
+    transition: width 0.6s ease-in-out;
+    margin-right: 5px;
+}
+.search-bar:focus {
+    width: 60vw;
+}
+
+.search-btn {
+    width: 100px;
+    height: 100%;
+}
+
+.temp-text {
+    font-size: 80%;
+}
+
+@media screen and (max-width: 690px) {
+    .temp-text {
+        visibility: hidden;
+        position: relative;
+    }
+    .temp-text:focus {
+        content: "Enter city IATA code (i.e SFO, MAD, LAX)"
+    }
+    .temp-text:after {
+        visibility: visible;
+        position: absolute;
+        top: 1rem;
+        left: 2rem;
+        content: "Enter city IATA code";
+    }
+}
+
+/* Search Results */
+.search-results {
+    text-align: center;
+}

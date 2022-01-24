@@ -85,6 +85,7 @@ def signup(request, backend='allauth.account.auth_backends.AuthenticationBackend
 # Flights
 def flights_index(request):
     if request.method == 'POST':
+        # Access search input field data
         form = InspForm(request.POST)
         if form.is_valid():
             depart_city = form.cleaned_data.get('depart_city')
@@ -108,7 +109,6 @@ def flights_index(request):
         params = (
             ('origin', f'{depart_city}'),
         )
-        
         # Call API - flight inspiration
         response = requests.get('https://test.api.amadeus.com/v1/shopping/flight-destinations', headers=headers, params=params)
         data= response.json()
