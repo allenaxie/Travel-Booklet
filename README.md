@@ -39,7 +39,7 @@ Travel Booklet is the ultimate application for travel bugs. With multiple API's 
 
 ## Next Steps
 
-- Sort flight search results by 
+- Sort flight search results by departure date
 - Implement flight booking functionality.
 - Implement hotel booking functionality.
 - Create a profile page for users to view and update account information.
