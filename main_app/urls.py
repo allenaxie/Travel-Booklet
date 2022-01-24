@@ -4,9 +4,14 @@ from . import views
 urlpatterns = [
     # Home
     path('', views.home, name='home'),
-    
+
+    # Flights
+    path('flights/',views.flights_index, name="flights_index"),
+
     # Sign up
     path('accounts/signup/',views.signup, name='signup'),
+
+
 
     # Trips
     path('trips/', views.trips_index, name='trips_index'),

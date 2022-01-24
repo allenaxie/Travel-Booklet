@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights</title>
+</head>
+<body>
+    <!-- Cheapest flights insp search -->
+    <section class="fluid-container">
+        <form class="form-container" action="{% url 'flights_index' %}" method="post">
+            {% csrf_token %}
+            <div class="search-container">
+                <input class="search-bar form-control" type="text" name="depart_city" placeholder="Enter city IATA code (i.e SFO, MAD, LAX)">
+                <button class="btn btn-success" type="submit">Search</button>
+            </div>
+        </form>
+    </section>
+    <section class="fluid-container">
+        <h1>Departure city: {{ data.data.0.origin }}</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Destination</th>
+                <th>Departure Date</th>
+                <th>Return Date</th>
+                <th>Price</th>
+            </tr>
+            {% for flight in data.data %}
+            <tr>
+                <td>{{ flight.destination }}</td>
+                <td>{{ flight.departureDate }}</td>
+                <td>{{ flight.returnDate }}</td>
+                <td>{{ flight.price.total }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</body>
+</html>
+
+{% endblock %}
