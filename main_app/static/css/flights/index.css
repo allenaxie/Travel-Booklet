@@ -14,11 +14,12 @@
 }
 
 .search-bar {
-    max-width: 40vw;
+    width: 40vw;
     -webkit-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
     margin-right: 5px;
 }
+
 .search-bar:focus {
     width: 60vw;
 }
