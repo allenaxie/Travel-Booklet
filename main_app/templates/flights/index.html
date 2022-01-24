@@ -17,8 +17,8 @@
         <form class="form-container" action="{% url 'flights_index' %}" method="post">
             {% csrf_token %}
             <div class="search-container form-floating">
-                <input class="search-bar form-control" type="text" name="depart_city" placeholder="Enter city IATA code (i.e SFO, MAD, LAX)">
-                <label class="temp-text">Enter city IATA code (i.e SFO, MAD, LAX)</label>
+                <input class="search-bar form-control" type="text" name="depart_city" placeholder="Enter city IATA code (i.e SFO, MAD, TYO)">
+                <label class="temp-text">Enter city IATA code (i.e SFO, MAD, TYO)</label>
                 <div>
                     <button class="btn btn-success" type="submit">Search</button>
                 </div>
@@ -27,9 +27,9 @@
         
     </section>
 
-  
+  <a class="city_list" href="https://github.com/amadeus4dev/data-collection/blob/master/data/flightsearch.md" target="_blank">List of available departure cities</a>
     <section class="fluid-container search-results">
-        <h1>Departure city: {{ data.data.0.origin }}</h1>
+        <h1>Departure city: {{ context.depart_city }}</h1>
         <table class="table table-striped">
             <tr>
                 <th>Destination</th>

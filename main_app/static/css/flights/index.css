@@ -14,7 +14,7 @@
 }
 
 .search-bar {
-    width: 40vw;
+    max-width: 40vw;
     -webkit-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
     margin-right: 5px;
@@ -38,7 +38,7 @@
         position: relative;
     }
     .temp-text:focus {
-        content: "Enter city IATA code (i.e SFO, MAD, LAX)"
+        content: "Enter city IATA code (i.e SFO, MAD, TYO)"
     }
     .temp-text:after {
         visibility: visible;
@@ -47,6 +47,11 @@
         left: 2rem;
         content: "Enter city IATA code";
     }
+}
+
+.city_list {
+    margin-left: 1rem;
+
 }
 
 /* Search Results */

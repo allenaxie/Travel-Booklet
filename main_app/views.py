@@ -88,7 +88,7 @@ def flights_index(request):
         # Access search input field data
         form = InspForm(request.POST)
         if form.is_valid():
-            depart_city = form.cleaned_data.get('depart_city')
+            depart_city = form.cleaned_data.get('depart_city').upper()
             context = {'form':form, 'depart_city': depart_city}
         # Cheap flights from departure city inspiration search
         # Get Amadeus API access token
